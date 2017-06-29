@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>MIJIM - Artist</title>
+    <meta name="description" content="MIJIM - Artist">
+
+    <link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <meta name="theme-color" content="#1296ad" />
+
+    <meta name="application-name" content="MIJIM"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="https://get.mavo.io/mavo.js"></script>
+
+</head>
+
+<body mv-app="mijim" mv-storage="https://www.dropbox.com/s/002skuyghkcgf1y/mijim.json?dl=0">
+
+    <div class="navigation" id="navigation">
+        <div class="container">
+            <a class="navigation__logo _smooth-scrolling" href="#home">
+                <img src="/img/mijim.png" alt="mijim logo" />
+                <p>Artist</p>
+            </a>
+            <nav>
+                <a href="#poetry" title="Poetry" class="_smooth-scrolling">Poetry</a>
+                <a href="#art" title="Art" class="_smooth-scrolling">Art</a>
+                <a href="#music" title="Music" class="_smooth-scrolling">Music</a>
+                <!-- MAVO CONTROLS -->
+                <span class="mv-bar" mv-bar="no-login no-clear no-status">
+                    <a class="mv-edit _mavo-controls" title="Edit" href="#">Edit</a>
+                    <a class="mv-save _mavo-controls" title="Save" href="#">Save</a>
+                    <a class="mv-logout _mavo-controls" title="Save" href="#">Logout</a>
+                </span>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+
+            <section id="home">
+                <p class="about" property="about" mv-default="About MIJIM"></p>
+                <span class="cube"></span>
+            </section>
+
+            <!-- POETRY -->
+            <section class="poetry" id="poetry">
+                <h1>POETRY</h1>
+                <!-- POEM MAVO TEMPLATE -->
+                <div property="poem" typeof="poem" mv-multiple mv-attribute="none" class="poem">
+                    <h3 property="poem-name" mv-default="Art name"></h3>
+                    <div class="poem__poem">
+                        <p property="poem-line-1" mv-default="Line-1"></p>
+                        <p property="poem-line-2" mv-default="Line-2"></p>
+                        <p property="poem-line-3" mv-default="Line-3"></p>
+                        <p property="poem-line-4" mv-default="Line-4"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ART -->
+            <section class="arts" id="art">
+                <h1>Art</h1>
+                <div class="arts-container">
+                    <!-- ART MAVO TEMPLATE -->
+                    <div property="art" typeof="art" mv-multiple mv-attribute="none" class="art">
+                        <div class="art__image" style="background: url([image]) no-repeat center center/cover;">
+                            <img property="image" />
+                        </div>
+                        <h3 property="art-name" mv-default="Art name"></h3>
+                        <p property="art-details" mv-default="Art description"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MUSIC -->
+            <section class="music" id="music">
+                <h1>MUSIC</h1>
+                <!-- AUDIO TEMPLATE (CURRENLTY NOT EDITABLE BY USER) -->
+                <div class="audio">
+                    <h3>Audio name</h3>
+                    <div class="audio__audio">
+                        <audio controls>
+                            <source src="files/test.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        footer
+    </footer>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>

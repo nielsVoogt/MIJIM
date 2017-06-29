@@ -1,0 +1,26 @@
+
+/// --------------------------------------------------------- Visually shows all defined breakpoints in $breakpoints
+
+body:before {
+    display: block;
+    position: fixed;
+    z-index: 99999;
+    background: $white;
+    color: rgba($black, .8);
+    font-size: .85rem;
+    border-radius: 0 .25em 0 0;
+    padding: .25em .75em;
+    bottom: 0em;
+    left: 0em;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, .5);
+
+    // ff ideetje: sommige breakpoints overlappen elkaar,
+    // dus hier moet een extra && check in komen die een
+    // ::after rendert als er 2 breakpoints zijn.
+
+    @each $breakpoint-name in map-keys($breakpoints) {
+        @include breakpoint(map-get($breakpoints, $breakpoint-name)) {
+            content: '#{$breakpoint-name}';
+        }
+    }
+}

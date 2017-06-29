@@ -1,0 +1,19 @@
+
+/// ----------------------------------------------------------------------------------------------- CONTAINER
+
+@include b(container) {
+    @extend %clearfix;
+    margin: 0 auto;
+    max-width: $layout--container-max-width;
+    width: 80%;
+
+    @include breakpoint(map-get($breakpoints, mobile)) {
+        width: 90%;
+    }
+}
+
+/// ----------------------------------------------------------------------------------------------- NAVIGATION
+
+main {
+    padding: 3em 0 1em;
+}

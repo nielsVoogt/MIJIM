@@ -1,0 +1,28 @@
+
+/// ----------------------------------------------------------------------------------------------- BASE
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -ms-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    color: $type--base-text-color;
+    font-family: $type--base-font-family;
+    font-size: $type--base-font-size;
+    line-height: $type--base-line-height;
+    background: $global--base-background-color;
+}
+
+body {
+    min-height: 100%;
+    height: 100%;
+}

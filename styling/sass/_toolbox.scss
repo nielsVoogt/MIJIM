@@ -1,0 +1,315 @@
+
+/// ---------------------------------------------- SIBLING COUNT STYLING
+
+@mixin one-element {
+    &:nth-child(1):nth-last-child(1) {
+        @content;
+    }
+}
+
+@mixin two-elements {
+    &:nth-child(1):nth-last-child(2),
+    &:nth-child(2):nth-last-child(1) {
+        @content;
+    }
+}
+
+@mixin three-elements {
+    &:nth-child(1):nth-last-child(3),
+    &:nth-child(2):nth-last-child(2),
+    &:nth-child(3):nth-last-child(1) {
+        @content;
+    }
+}
+
+/// ---------------------------------------------- CENTER IT
+
+@mixin center-it {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+}
+
+@mixin fill-her-up {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@mixin valign-it {
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+}
+
+/// ---------------------------------------------- IE's
+
+@mixin ie($v: null) {
+    @if $v == 10 {
+        .ie1 & {
+            @content;
+        }
+    } @else if $v == 9 {
+        .ie9 & {
+            @content;
+        }
+    } @else {
+        .ie9 &,
+        .ie1 & {
+            @content;
+        }
+    }
+}
+
+/// ---------------------------------------------- THE ALMIGHTY BEM MIXIN!
+
+$elementSeparator: '__';
+$modifierSeparator: '--';
+
+@function containsModifier($selector) {
+    $selector: selectorToString($selector);
+    @if str-index($selector, $modifierSeparator) {
+        @return true;
+    } @else {
+        @return false;
+    }
+}
+
+@function selectorToString($selector) {
+    $selector: inspect($selector); //cast to string
+    $selector: str-slice($selector, 2, -2); //remove brackets
+    @return $selector;
+}
+
+@function getBlock($selector) {
+    $selector: selectorToString($selector);
+    $modifierStart: str-index($selector, $modifierSeparator) - 1;
+    @return str-slice($selector, 0, $modifierStart);
+}
+
+@mixin b($block) {
+    .#{$block} {
+        @content;
+    }
+}
+
+@mixin e($element) {
+    $selector: #{&};
+
+    @if containsModifier($selector) {
+        $block: getBlock($selector);
+        @at-root {
+            #{$selector} {
+                .#{$block+$elementSeparator+$element} {
+                    @content;
+                }
+            }
+        }
+    } @else {
+        @at-root {
+            &#{$elementSeparator+$element} {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin m($modifier) {
+    @at-root {
+        $block: inspect(#{&});
+        &#{$modifierSeparator+$modifier} {
+            @content;
+        }
+    }
+}
+
+@mixin me($el1: null, $el2: null, $el3: null, $el4: null, $el5: null, $el6: null, $el7: null, $el8: null, $el9: null) {
+    @if $el3 == null {
+      &#{$elementSeparator}#{$el1},
+      &#{$elementSeparator}#{$el2} {
+            @content;
+        }
+    } @else if $el4 == null {
+        &#{$elementSeparator}#{$el1},
+        &#{$elementSeparator}#{$el2},
+        &#{$elementSeparator}#{$el3} {
+            @content;
+        }
+    } @else if $el5 == null {
+        &#{$elementSeparator}#{$el1},
+        &#{$elementSeparator}#{$el2},
+        &#{$elementSeparator}#{$el3},
+        &#{$elementSeparator}#{$el4} {
+            @content;
+        }
+    } @else if $el6 == null {
+        &#{$elementSeparator}#{$el1},
+        &#{$elementSeparator}#{$el2},
+        &#{$elementSeparator}#{$el3},
+        &#{$elementSeparator}#{$el4},
+        &#{$elementSeparator}#{$el5} {
+            @content;
+        }
+    } @else if $el7 == null {
+        &#{$elementSeparator}#{$el1},
+        &#{$elementSeparator}#{$el2},
+        &#{$elementSeparator}#{$el3},
+        &#{$elementSeparator}#{$el4},
+        &#{$elementSeparator}#{$el5},
+        &#{$elementSeparator}#{$el6} {
+            @content;
+        }
+    } @else if $el8 == null {
+        &#{$elementSeparator}#{$el1},
+        &#{$elementSeparator}#{$el2},
+        &#{$elementSeparator}#{$el3},
+        &#{$elementSeparator}#{$el4},
+        &#{$elementSeparator}#{$el5},
+        &#{$elementSeparator}#{$el6},
+        &#{$elementSeparator}#{$el7} {
+            @content;
+        }
+    } @else {
+        &#{$elementSeparator}#{$el1},
+        &#{$elementSeparator}#{$el2},
+        &#{$elementSeparator}#{$el3},
+        &#{$elementSeparator}#{$el4},
+        &#{$elementSeparator}#{$el5},
+        &#{$elementSeparator}#{$el6},
+        &#{$elementSeparator}#{$el7},
+        &#{$elementSeparator}#{$el8} {
+            @content;
+        }
+    }
+}
+
+@mixin mb($bl1: null, $bl2: null, $bl3: null, $bl4: null, $bl5: null, $bl6: null, $bl7: null, $bl8: null, $bl9: null) {
+    @if $bl3 == null {
+      .#{$bl1},
+      .#{$bl2} {
+            @content;
+        }
+    } @else if $bl4 == null {
+        .#{$bl1},
+        .#{$bl2},
+        .#{$bl3} {
+            @content;
+        }
+    } @else if $bl5 == null {
+        .#{$bl1},
+        .#{$bl2},
+        .#{$bl3},
+        .#{$bl4} {
+            @content;
+        }
+    } @else if $bl6 == null {
+        .#{$bl1},
+        .#{$bl2},
+        .#{$bl3},
+        .#{$bl4},
+        .#{$bl5} {
+            @content;
+        }
+    } @else if $bl7 == null {
+        .#{$bl1},
+        .#{$bl2},
+        .#{$bl3},
+        .#{$bl4},
+        .#{$bl5},
+        .#{$bl6} {
+            @content;
+        }
+    } @else if $bl8 == null {
+        .#{$bl1},
+        .#{$bl2},
+        .#{$bl3},
+        .#{$bl4},
+        .#{$bl5},
+        .#{$bl6},
+        .#{$bl7} {
+            @content;
+        }
+    } @else {
+        .#{$bl1},
+        .#{$bl2},
+        .#{$bl3},
+        .#{$bl4},
+        .#{$bl5},
+        .#{$bl6},
+        .#{$bl7},
+        .#{$bl8} {
+            @content;
+        }
+    }
+}
+
+/// ---------------------------------------------- INPUT PLACEHOLDER
+
+$input-line-height-offset: 0 !default;
+
+@mixin placeholder($placeholdercolor: auto, $placeholdersize: auto, $placeholderopacity: auto, $placeholderlineheight: inherit) {
+
+    &::-webkit-input-placeholder {
+        color: $placeholdercolor;
+        font-size: $placeholdersize;
+        opacity: $placeholderopacity;
+        line-height: $placeholderlineheight;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        color: $placeholdercolor;
+        font-size: $placeholdersize;
+        opacity: $placeholderopacity;
+        line-height: $placeholderlineheight;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+        color: $placeholdercolor;
+        font-size: $placeholdersize;
+        opacity: $placeholderopacity;
+        line-height: $placeholderlineheight;
+    }
+
+    &:-ms-input-placeholder {
+        color: $placeholdercolor;
+        font-size: $placeholdersize;
+        opacity: $placeholderopacity;
+        line-height: $placeholderlineheight;
+    }
+}
+
+/// ---------------------------------------------- CLEARFIX
+
+%clearfix {
+    *zoom: 1;
+
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/// ---------------------------------------------- CIRCLE
+
+@mixin circle($value) {
+    width: $value;
+    height: $value;
+    border-radius: $value;
+    -moz-border-radius: $value;
+    -webkit-border-radius: $value;
+}
+
+/// ---------------------------------------------- SQUARE
+
+@mixin square($value) {
+    width: $value;
+    height: $value;
+}

@@ -1,0 +1,15 @@
+
+/// ----------------------------------------------------------------------------------------------- MV-ADD BASE STYLES
+
+@include b(mv-add) {
+    clear: both;
+    background: none;
+    border: 3px dotted rgba($black, .2);
+    border-radius: 10px;
+    font-size: 1.5rem;
+
+    &:hover {
+        border: 3px dotted #a3d39c;
+        cursor: pointer;
+    }
+}

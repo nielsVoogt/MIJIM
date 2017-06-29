@@ -1,0 +1,10 @@
+
+/// ----------------------------------------------------------------------------------------------- ABOUT
+
+@include b(about) {
+    border-left: 1px solid rgba($black, .3);
+    margin-left: 2em;
+    max-width: 70%;
+    padding: 2em 2em 0;
+    width: 100%;
+}

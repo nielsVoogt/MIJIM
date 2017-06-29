@@ -1,0 +1,71 @@
+
+/// ----------------------------------------------------------------------------------------------- PARAGRAPH AND ANCHOR
+
+p {
+    letter-spacing: $type--paragraph-letter-spacing;
+}
+
+p,
+a,
+label {
+    font-size: 1rem;
+}
+
+a {
+    color: $type--anchor-color;
+    cursor: pointer;
+    font-weight: $type--anchor-font-weight;
+    text-decoration: none;
+
+    p, h1, h2, h3, h4, h5, h6 {
+        color: $type--base-text-color;
+    }
+}
+
+small {
+    font-size: .7rem;
+}
+
+/// ----------------------------------------------------------------------------------------------- HEADINGS
+
+h1, h2 {
+    font-family: $type--header-font-family;
+    font-weight: $type--header-font-weight;
+    letter-spacing: $type--header-letter-spacing;
+    text-transform: $type--header-text-transform;
+}
+
+h3, h4, h5, h6 {
+    font-family: $type--base-font-family;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1.125rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+h5 {
+    font-size: 0.9rem;
+}
+
+h6 {
+    font-size: 0.8rem;
+}
+
+/// ----------------------------------------------------------------------------------------------- HELPERS
+
+@include b(bold) {
+    font-weight: bold;
+}

@@ -1,0 +1,29 @@
+
+/// ----------------------------------------------------------------------------------------------- AUDIO
+
+@include b(audio) {
+    margin-bottom: 2em;
+
+    h3 {
+        margin-bottom: .5em;
+    }
+
+    @include e(audio) {
+        background: #f26c4f;
+        padding: 1.25em;
+        position: relative;
+
+        audio {
+            display: block;
+            width: 100%;
+        }
+
+        &::after {
+            @include fill-her-up;
+            background: rgba($black, .2);
+            content: '';
+            transform: translate(.75em, .75em);
+            z-index: -1;
+        }
+    }
+}

@@ -1,0 +1,84 @@
+
+/// ----------------------------------------------------------------------------------------------- SECTION
+
+section {
+    @extend %clearfix;
+    position: relative;
+    padding: 7.5em 0 0;
+    
+    @include breakpoint(map-get($breakpoints, mobile)) {
+        padding: 5em 0 2em;
+    }
+
+    > h1 {
+        font-size: 3rem;
+        margin-bottom: .5em;
+    }
+}
+
+/// ----------------------------------------------------------------------------------------------- SECTION DECORATIONS
+
+@include b(cube) {
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: -2;
+
+    @include m(top) {
+        @include square(50em);
+        left: -25vw;
+        background: #acd2f2;
+    }
+
+    @include m(bottom) {
+        @include square(25em);
+        left: -10vw;
+        background: yellow;
+    }
+}
+
+@include b(arts) {
+    &::after {
+        background: rgba($black, .1);
+        z-index: -2;
+        content: '';
+        height: 25em;
+        left: 50%;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: rotate(-3deg) translate(-50%, -50%);
+        width: 200vw;
+    }
+}
+
+/// ----------------------------------------------------------------------------------------------- FOOTER
+
+@include b(footer) {
+    form {
+        background: $white;
+        border: 1px solid grey;
+        display: inline-block;
+        margin: 3em 0 0;
+        position: relative;
+
+        [type='email'] {
+            width: 25em;
+        }
+        
+        &::after {
+            @include fill-her-up;
+            background: rgba($black, .2);
+            content: '';
+            transform: translate(.75em, .75em);
+            z-index: -1;
+        }
+    }
+
+    @include b(container) {
+        > p {
+            @include breakpoint(map-get($breakpoints, mobile)) {
+                max-width: 70%;
+            }
+        }
+    }
+}

@@ -8,7 +8,7 @@
     <meta name="description" content="MIJIM - Artist">
 
     <link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 
     <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
@@ -41,7 +41,7 @@
     <div class="navigation" id="navigation">
         <div class="container">
             <a class="navigation__logo _smooth-scrolling" href="#home">
-                <img src="/img/mijim.png" alt="mijim logo" />
+                <img src="./img/mijim.png" alt="mijim logo" />
                 <p>Artist</p>
             </a>
             <nav>
@@ -63,7 +63,7 @@
 
             <section id="home">
                 <p class="about" property="about" mv-default="About MIJIM"></p>
-                <span class="cube"></span>
+                <span class="cube cube--top"></span>
             </section>
 
             <!-- POETRY -->
@@ -113,12 +113,28 @@
         </div>
     </main>
 
-    <footer>
-        footer
-    </footer>
+    <section class="footer">
+        <span class="cube cube--bottom"></span>
+        <div class="container">
+            <h1>Nieuwsbrief</h1>
+            <p property="newsletter-content" mv-default="Nieuwsbrief text"></p>
+            <form action="https://formspree.io/n.voogt@gmail.com" method="POST">
+                <input type="email" name="_replyto" />
+                <input type="submit" value="Send" />
+            </form>
+        </div>
+        <footer>
+            <div class="container">
+                <p>MIJIM.nl</p>
+                <span>|</span>
+                <p>Copyright 2017</p>
+                <span>|</span>
+                <p>Powered by Ijmuiden</p>
+            </div>
+        </footer>
+    </section>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-
 </body>
 </html>

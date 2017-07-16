@@ -4,7 +4,7 @@
 @import 'settings';
 @import 'toolbox';
 
-@import '../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import '../node_modules/breakpoint-sass/stylesheets/breakpoint';
 
 /// -----------------------------------------------------------------------------------------------  BASE
 
@@ -18,6 +18,10 @@
 @import 'layout/layout';
 @import 'layout/navigation';
 @import 'layout/sections';
+
+/// ----------------------------------------------------------------------------------------------- FORMS
+
+@import 'forms/input';
 
 /// ----------------------------------------------------------------------------------------------- COMPONENTS
 

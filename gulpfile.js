@@ -13,21 +13,16 @@ function onError(err) {
     this.emit('end');
 }
 
-var folders = [
-    './styling',
-];
-
 // --------------------------------------------------- SASS/CSS DEST
 
-var sassInput  = './styling/**/*.scss',
-    cssInput   = './styling/css/*.css',
+var sassInput  = './sass/**/*.scss',
     devInput   = ['./web/*.html', './web/*.php'];
 
 // --------------------------------------------------- COMPILE OPTIONS
 
 var sassOptions = {
-  errLogToConsole: true,
-  outputStyle: 'expanded'
+    errLogToConsole: true,
+    outputStyle: 'expanded'
 };
 
 // --------------------------------------------------- AUTOPREFIXER OPTIONS
@@ -52,13 +47,9 @@ gulp.task('serve', ['sass'], function() {
 
 // --------------------------------------------------- SASS TASK
 
-gulp.task('sass', function(){
-    var tasks = folders.map(function(element){
-        return gulp.src(element + '/**/*.scss', {base: element + '/sass'})
-        .pipe(sass().on('error', sass.logError))        // Error logging
-        .pipe(autoprefixer(autoprefixerOptions))        // Autoprefixer with options
-        .pipe(gulp.dest(element + '/css'))
-    });
-
-    return merge(tasks);
+gulp.task('sass', function () {
+  return gulp.src('./sass/**/*.scss')
+    .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(gulp.dest('./web/css/'));
 });

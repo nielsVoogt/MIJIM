@@ -3,8 +3,8 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: url('/fonts/roboto-regular-webfont.woff2') format('woff2'),
-         url('/fonts/roboto-regular-webfont.woff') format('woff');
+    src: url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('../fonts/roboto-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -13,8 +13,8 @@
 
 @font-face {
     font-family: 'Heading';
-    src: url('/fonts/heading-webfont.woff2') format('woff2'),
-         url('/fonts/heading-webfont.woff') format('woff');
+    src: url('../fonts/heading-webfont.woff2') format('woff2'),
+         url('../fonts/heading-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
